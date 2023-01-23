@@ -35,7 +35,7 @@ public class Developer {
     }
 
     Task makeTask(){
-        if(this.currentTask != null && this.isFree == false){
+        if(this.currentTask != null && !this.isFree){
             this.currentTask.isDeveloped = true;
             this.isFree = true;
         }
