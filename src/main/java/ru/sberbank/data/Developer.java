@@ -6,10 +6,23 @@ public class Developer {
     Task currentTask;
     int id;
     boolean isFree;
+    String firstName;
+    String secondName;
 
     public Developer(int id) {
         this.id = id;
         this.isFree = true;
+    }
+
+    public Developer(int id, String firstName, String secondName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.isFree = false;
+    }
+
+    public boolean equals(Developer d) {
+        return this.id == d.id && this.firstName.equals(d.firstName) && this.secondName.equals(d.secondName) ? true :  false;
     }
 
     boolean addTask(Task task){
