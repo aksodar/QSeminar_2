@@ -6,10 +6,29 @@ public class Developer {
     Task currentTask;
     int id;
     boolean isFree;
+    String firstName;
+    String secondName;
 
-    public Developer(int id) {
+    public Developer(int id, String firstName, String secondName) {
         this.id = id;
         this.isFree = true;
+        this.firstName = firstName;
+        this.secondName = secondName;
+    }
+
+    public boolean equals2(Developer d){
+        if (this.id == d.id){
+            if(this.firstName.equals(d.firstName) && this.secondName.equals(d.secondName))
+            return true;
+        }
+        return false;
+    }
+    public boolean equalsIgnoreCase2(Developer d){
+        if (this.id == d.id){
+            if(this.firstName.equalsIgnoreCase(d.firstName) && this.secondName.equalsIgnoreCase(d.secondName))
+                return true;
+        }
+        return false;
     }
 
     boolean addTask(Task task){
