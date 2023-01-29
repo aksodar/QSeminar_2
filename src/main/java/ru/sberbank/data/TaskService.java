@@ -10,7 +10,7 @@ public class TaskService {
     }
 
     public boolean createTask(int id, String summary) {
-        if (summary.isEmpty() == false && summary != null) {
+        if (summary != null && summary.isEmpty() == false) {
             Task x = new Task(id, summary);
             list.add(x);
             return true;

@@ -10,7 +10,7 @@ public class TesterService {
     }
 
     public boolean createTester(int id, String firstName, String secondName){
-        if (firstName != null && secondName != null){
+        if (firstName != null && secondName != null && firstName != "" && secondName != ""){
             Tester QA = new Tester(id, firstName, secondName);
             list.add(QA);
             return true;
