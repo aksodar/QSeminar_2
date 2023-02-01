@@ -6,9 +6,13 @@ public class Developer {
     Task currentTask;
     int id;
     boolean isFree;
+    String firstName;
+    String secondName;
 
-    public Developer(int id) {
+    public Developer(int id, String firstName, String secondName) {
         this.id = id;
+        this.firstName = firstName;
+        this.secondName = secondName;
         this.isFree = true;
     }
 
@@ -32,5 +36,14 @@ public class Developer {
     void release(){
         this.currentTask = null;
         this.isFree = true;
+    }
+
+    public boolean equals2(Developer developer){
+        if(this.id == developer.id){
+            if(this.firstName.equalsIgnoreCase(developer.firstName) && this.secondName.equalsIgnoreCase(developer.secondName)){
+                return true;
+            }
+        }
+        return false;
     }
 }
