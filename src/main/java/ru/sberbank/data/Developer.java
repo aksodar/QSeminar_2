@@ -3,33 +3,61 @@ package ru.sberbank.data;
 import java.util.Objects;
 
 public class Developer {
-    Task currentTask;
-    int id;
-    boolean isFree;
+    private int id;
+    private boolean isFree;
+    private Task currentTask;
 
-    public Developer(int id) {
+    public Developer (int id, boolean isFree) {
+        this.id = id;
+        this.isFree = isFree;
+    }
+
+    public Developer (int id) {
         this.id = id;
         this.isFree = true;
     }
 
-    boolean addTask(Task task){
-        if(this.isFree && this.currentTask == null){
-            this.currentTask = task;
+    public int getId() {
+        return id;
+    }
+
+    public boolean isFree() {
+        return isFree;
+    }
+
+    public void setFree(final boolean free) {
+        isFree = free;
+    }
+
+    public Task getCurrentTask() {
+        return currentTask;
+    }
+
+    public void setCurrentTask(final Task currentTask) {
+        this.currentTask = currentTask;
+    }
+
+    public void setId(final int id) {
+        this.id = id;
+    }
+
+    public boolean addTask(Task t) {
+        if (this.isFree == true && this.currentTask == null) {
+            this.currentTask = t;
             this.isFree = false;
             return true;
         }
         return false;
     }
 
-    Task makeTask(){
-        if(this.currentTask != null && this.isFree == false){
-            this.currentTask.isDeveloped = true;
-            this.isFree = true;
+    public Task makeTask() {
+        if (this.currentTask != null) {
+            this.currentTask.setDeveloped(true);
         }
-        return null;
+        return currentTask;
     }
 
-    void release(){
+    public void release() {
         this.currentTask = null;
         this.isFree = true;
     }
